@@ -31,13 +31,6 @@
 		6DB016781F670D6900D99BAE /* blogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB016771F670D6900D99BAE /* blogViewController.swift */; };
 		6DB0167A1F670E7B00D99BAE /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB016791F670E7B00D99BAE /* myTableViewCell.swift */; };
 		6DB0167C1F6820C900D99BAE /* saisieBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0167B1F6820C900D99BAE /* saisieBlogViewController.swift */; };
-		6DD7F57D1F7161D20036D7EF /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F5781F7161D20036D7EF /* 40x40.png */; };
-		6DD7F57E1F7161D20036D7EF /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F5791F7161D20036D7EF /* 58x58.png */; };
-		6DD7F57F1F7161D20036D7EF /* 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F57A1F7161D20036D7EF /* 60x60.png */; };
-		6DD7F5801F7161D20036D7EF /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F57B1F7161D20036D7EF /* 80x80.png */; };
-		6DD7F5811F7161D20036D7EF /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F57C1F7161D20036D7EF /* 87x87.png */; };
-		6DD7F5841F7161DE0036D7EF /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F5821F7161DD0036D7EF /* 120x120.png */; };
-		6DD7F5851F7161DE0036D7EF /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7F5831F7161DD0036D7EF /* 180x180.png */; };
 		6DE37D261F64797900B3F8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE37D251F64797900B3F8CD /* AppDelegate.swift */; };
 		6DE37D281F64797900B3F8CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE37D271F64797900B3F8CD /* ViewController.swift */; };
 		6DE37D2B1F64797900B3F8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DE37D291F64797900B3F8CD /* Main.storyboard */; };
@@ -71,13 +64,6 @@
 		6DB016771F670D6900D99BAE /* blogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = blogViewController.swift; path = Mysql_php/blogViewController.swift; sourceTree = "<group>"; };
 		6DB016791F670E7B00D99BAE /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myTableViewCell.swift; path = Mysql_php/myTableViewCell.swift; sourceTree = "<group>"; };
 		6DB0167B1F6820C900D99BAE /* saisieBlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = saisieBlogViewController.swift; path = Mysql_php/saisieBlogViewController.swift; sourceTree = "<group>"; };
-		6DD7F5781F7161D20036D7EF /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 40x40.png; path = img/40x40.png; sourceTree = "<group>"; };
-		6DD7F5791F7161D20036D7EF /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 58x58.png; path = img/58x58.png; sourceTree = "<group>"; };
-		6DD7F57A1F7161D20036D7EF /* 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 60x60.png; path = img/60x60.png; sourceTree = "<group>"; };
-		6DD7F57B1F7161D20036D7EF /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 80x80.png; path = img/80x80.png; sourceTree = "<group>"; };
-		6DD7F57C1F7161D20036D7EF /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 87x87.png; path = img/87x87.png; sourceTree = "<group>"; };
-		6DD7F5821F7161DD0036D7EF /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = img/120x120.png; sourceTree = "<group>"; };
-		6DD7F5831F7161DD0036D7EF /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = img/180x180.png; sourceTree = "<group>"; };
 		6DE37D221F64797900B3F8CD /* Mysql_php.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mysql_php.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE37D251F64797900B3F8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DE37D271F64797900B3F8CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,13 +105,6 @@
 				6D6B84701F6A6D4B0039FE06 /* post.png */,
 				6D6B84711F6A6D4B0039FE06 /* stat.png */,
 				6D6B84721F6A6D4B0039FE06 /* Upload.png */,
-				6DD7F5781F7161D20036D7EF /* 40x40.png */,
-				6DD7F5791F7161D20036D7EF /* 58x58.png */,
-				6DD7F57A1F7161D20036D7EF /* 60x60.png */,
-				6DD7F57B1F7161D20036D7EF /* 80x80.png */,
-				6DD7F57C1F7161D20036D7EF /* 87x87.png */,
-				6DD7F5821F7161DD0036D7EF /* 120x120.png */,
-				6DD7F5831F7161DD0036D7EF /* 180x180.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -253,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DD7F5841F7161DE0036D7EF /* 120x120.png in Resources */,
 				6D6B847D1F6A6D4B0039FE06 /* mail.png in Resources */,
 				6D6B84791F6A6D4B0039FE06 /* login-lock.png in Resources */,
 				6D6B847E1F6A6D4B0039FE06 /* Message.ico in Resources */,
@@ -266,17 +244,11 @@
 				6D6B84781F6A6D4B0039FE06 /* img2.jpg in Resources */,
 				6D6B847A1F6A6D4B0039FE06 /* login.png in Resources */,
 				6D6B847B1F6A6D4B0039FE06 /* logo2.png in Resources */,
-				6DD7F5801F7161D20036D7EF /* 80x80.png in Resources */,
-				6DD7F57D1F7161D20036D7EF /* 40x40.png in Resources */,
 				6D6B84811F6A6D4B0039FE06 /* stat.png in Resources */,
-				6DD7F5851F7161DE0036D7EF /* 180x180.png in Resources */,
 				6D6B84771F6A6D4B0039FE06 /* home.png in Resources */,
 				6D6B84761F6A6D4B0039FE06 /* e-Message.png in Resources */,
 				6D35D5171F6BB9CF00BE5289 /* ok.png in Resources */,
 				6D6B847C1F6A6D4B0039FE06 /* mail.ico in Resources */,
-				6DD7F5811F7161D20036D7EF /* 87x87.png in Resources */,
-				6DD7F57E1F7161D20036D7EF /* 58x58.png in Resources */,
-				6DD7F57F1F7161D20036D7EF /* 60x60.png in Resources */,
 				6D6B84751F6A6D4B0039FE06 /* computer.jpg in Resources */,
 				6DE37D2B1F64797900B3F8CD /* Main.storyboard in Resources */,
 				6D6B84801F6A6D4B0039FE06 /* post.png in Resources */,
