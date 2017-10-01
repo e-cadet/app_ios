@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A6D4617AE519BCC6710EB8EB0A5ED845CD9E2812",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5B6A97EEB5BEB3750BA0F06D9CA8BD61D767DB84" : 9223372036854775807,
+    "A6D4617AE519BCC6710EB8EB0A5ED845CD9E2812" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "398924C4-1C9F-4B5D-89A9-BB01E4BA6A1F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5B6A97EEB5BEB3750BA0F06D9CA8BD61D767DB84" : "site_web\/",
+    "A6D4617AE519BCC6710EB8EB0A5ED845CD9E2812" : "ios_programme\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "web_cv",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "web_cv\/web_cv.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lakhdar-rouibah\/cv_web",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5B6A97EEB5BEB3750BA0F06D9CA8BD61D767DB84"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/e-cadet\/app_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A6D4617AE519BCC6710EB8EB0A5ED845CD9E2812"
+    }
+  ]
+}
