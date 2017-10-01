@@ -19,6 +19,8 @@
 		6D2DD6171F81201300C3522C /* icons8-online_support.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD6161F81201300C3522C /* icons8-online_support.png */; };
 		6D2DD6191F8122BE00C3522C /* icons8-forgot_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD6181F8122BE00C3522C /* icons8-forgot_password.png */; };
 		6D2DD61B1F8122E400C3522C /* icons8-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61A1F8122E400C3522C /* icons8-lock.png */; };
+		6D2DD61D1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61C1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png */; };
+		6D2DD61F1F816EC000C3522C /* icons8-blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61E1F816EC000C3522C /* icons8-blog.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		6D2DD6161F81201300C3522C /* icons8-online_support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-online_support.png"; path = "img/icons8-online_support.png"; sourceTree = "<group>"; };
 		6D2DD6181F8122BE00C3522C /* icons8-forgot_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-forgot_password.png"; path = "img/icons8-forgot_password.png"; sourceTree = "<group>"; };
 		6D2DD61A1F8122E400C3522C /* icons8-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-lock.png"; path = "img/icons8-lock.png"; sourceTree = "<group>"; };
+		6D2DD61C1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-mailbox_closed_flag_up.png"; path = "img/icons8-mailbox_closed_flag_up.png"; sourceTree = "<group>"; };
+		6D2DD61E1F816EC000C3522C /* icons8-blog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-blog.png"; path = "img/icons8-blog.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				6D2DD6111F81200B00C3522C /* icons8-filled_message.png */,
 				6D2DD6121F81200B00C3522C /* icons8-home.png */,
 				6D2DD61A1F8122E400C3522C /* icons8-lock.png */,
+				6D2DD61E1F816EC000C3522C /* icons8-blog.png */,
+				6D2DD61C1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png */,
 				6D2DD6181F8122BE00C3522C /* icons8-forgot_password.png */,
 				6D2DD6161F81201300C3522C /* icons8-online_support.png */,
 				6D2DD60E1F8103C400C3522C /* _DSC9765.png */,
@@ -161,8 +167,10 @@
 				6D2DD6191F8122BE00C3522C /* icons8-forgot_password.png in Resources */,
 				6D2DD6141F81200B00C3522C /* icons8-filled_message.png in Resources */,
 				6D2DD6131F81200B00C3522C /* icons8-bebo.png in Resources */,
+				6D2DD61D1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png in Resources */,
 				6D2DD6171F81201300C3522C /* icons8-online_support.png in Resources */,
 				6D2DD60F1F8103C400C3522C /* _DSC9765.png in Resources */,
+				6D2DD61F1F816EC000C3522C /* icons8-blog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
