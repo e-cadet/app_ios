@@ -75,10 +75,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("APNs device token: \(deviceTokenString)")
         
         
+       
+      
         //Envoyer token vers php bdd
         
         
     }
+    
     
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
