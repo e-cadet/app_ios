@@ -10,7 +10,31 @@ import UIKit
 import Foundation
 
 
+/*
+struct Courses {
 
+    let  ip : String
+    let  jour : String
+    let  heure : String
+    let  nom: String
+    let  email : String
+    let  tel : String
+    let  message : String
+
+    init (jsonData : [String: Any]){
+    
+        ip = jsonData ["ip"] as!String
+        jour = jsonData ["jour"] as!String
+        heure = jsonData ["heure"] as! String
+        nom = jsonData ["nom"] as! String
+        email = jsonData ["email"] as! String
+        tel = jsonData ["tel"] as! String
+        message = jsonData ["message"] as! String
+        
+    }
+
+}
+*/
 class messageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTableView: UITableView!
@@ -45,8 +69,11 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     
                     
-                            self.items = jsonData as! [[String:AnyObject]]
-                            print (jsonData)
+                            let json_decode = jsonData as! [[String:AnyObject]]
+                    
+                    
+                    self.items = json_decode
+                    
                     
                             DispatchQueue.main.async(){
                                 

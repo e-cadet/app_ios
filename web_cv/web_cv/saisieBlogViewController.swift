@@ -60,7 +60,7 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     func myImageUploadRequest()
     {
         
-        let myUrl = NSURL(string: "http://rouibah.fr/search/blog_upload.php");
+        let myUrl = NSURL(string: "http://rouibah.fr/search/web.php");
         
         let request = NSMutableURLRequest(url:myUrl! as URL);
         request.httpMethod = "POST";
@@ -68,7 +68,8 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
         let param = [
             "title"  : title_label.text! ,
             "descr"    : descr_label.text!,
-            "userId"    : "9"
+            
+            "demande" : "insertBlog"
         ] as [String : Any]
         
         let boundary = generateBoundaryString()

@@ -10,7 +10,7 @@ import UIKit
 
 class contactViewController: UIViewController {
 
-    let URL_SAVE_TEAM = "http://rouibah.fr/search/contact.php"
+    let URL = "http://rouibah.fr/search/web.php"
     
     @IBOutlet weak var name_field: UITextField!
     @IBOutlet weak var email_field: UITextField!
@@ -58,7 +58,7 @@ class contactViewController: UIViewController {
     @IBAction func envoyer_btn(_ sender: Any) {
         
         //creation NSURL
-        let requestURL = NSURL(string: URL_SAVE_TEAM)
+        let requestURL = NSURL(string: URL)
         
         //creation NSMutableURLRequest
         let request = NSMutableURLRequest(url:requestURL! as URL )
@@ -85,7 +85,9 @@ class contactViewController: UIViewController {
         }
         else {
                 //creation post parametre
-                let postParameters = "name="+name!+"&email="+email!+"&tel="+tel!+"&message_t="+message_t!;
+            
+                let demande = "insertContact"
+                let postParameters = "demande="+demande+"&nom="+name!+"&email="+email!+"&tel="+tel!+"&message="+message_t!;
         
                 //ajouter parametres pour request body
                 request.httpBody = postParameters.data(using: String.Encoding.utf8)
