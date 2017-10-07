@@ -9,35 +9,52 @@
 import UIKit
 import Foundation
 
+
+
 class messageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTableView: UITableView!
     
-     var items = [[String:AnyObject]]()
+    var items = [[String : AnyObject]]()
+    
+        var itom = NSString()
+      
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+       
+                let lien = "http://rouibah.fr/search/web.php"
+                let demande = "message"
+                let requestURL = NSURL(string: lien)
+                let request = NSMutableURLRequest(url:requestURL! as URL )
+                request.httpMethod = "POST"
+                let postParameters = "demande="+demande
+                request.httpBody = postParameters.data(using: String.Encoding.utf8)
+                let urlSession = URLSession.shared
 
-        let url = NSURL(string: "http://rouibah.fr/search/rec_message.php")!
-        let urlSession = URLSession.shared
-        let task = urlSession.dataTask(with: url as URL) { (data, response, error) in
-            
-            
-            let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
-            
-            self.items = jsonData  as! [[String : AnyObject]]
-           
-            DispatchQueue.main.async()
-                {
-                    self.messageTableView.reloadData()
-            }
-            
-        }
-        
-        task.resume()
-        
-   
-        
+                let task = urlSession.dataTask(with: request as URLRequest) {data, response, error in
+                    
+                    
+                            let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
+                    
+                    
+                    
+                    
+                            self.items = jsonData as! [[String:AnyObject]]
+                            print (jsonData)
+                            self.messageTableView.reloadData()
+                    
+                    
+                    
+                    }
+                
+                task.resume()
+       
         
     }
     
@@ -45,6 +62,7 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
+    
 }
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +71,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     
     var item = items[indexPath.row]
+    //var item = items
     
     cell.nom_label.text = item["nom"] as? String
     cell.IP_label.text = item["ip"] as? String
@@ -60,7 +79,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.tel_label.text = item["tel"] as? String
     cell.date_label.text = item["jour"] as? String
     cell.heure_label.text = item["heure"] as? String
-    cell.message_label.text = item["message"] as? String;
+    cell.message_label.text = item["message"] as? String
     
     return cell
     
@@ -71,6 +90,9 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 }
 
 
- 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
  
 }

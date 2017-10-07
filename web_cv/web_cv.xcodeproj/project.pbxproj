@@ -25,6 +25,7 @@
 		6D3E7F4B1F855B8C00531251 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F4A1F855B8C00531251 /* loginViewController.swift */; };
 		6D3E7F4D1F8564A400531251 /* messageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F4C1F8564A400531251 /* messageTableViewCell.swift */; };
 		6D3E7F4F1F8564F900531251 /* messageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F4E1F8564F900531251 /* messageViewController.swift */; };
+		6D5492851F88F12F00FACDE7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D0C41281F80EF9A00188E24 /* Info.plist */; };
 		6DA825D91F841FF10074E967 /* icons8-appointment_reminders.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA825D81F841FF10074E967 /* icons8-appointment_reminders.png */; };
 		6DA825DD1F84D74A0074E967 /* contactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA825DC1F84D74A0074E967 /* contactViewController.swift */; };
 		6DA825DF1F84E4870074E967 /* blogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA825DE1F84E4870074E967 /* blogViewController.swift */; };
@@ -212,6 +213,7 @@
 				6D0C41221F80EF9A00188E24 /* Main.storyboard in Resources */,
 				6D2DD61B1F8122E400C3522C /* icons8-lock.png in Resources */,
 				6DA825D91F841FF10074E967 /* icons8-appointment_reminders.png in Resources */,
+				6D5492851F88F12F00FACDE7 /* Info.plist in Resources */,
 				6D2DD6191F8122BE00C3522C /* icons8-forgot_password.png in Resources */,
 				6D2DD6141F81200B00C3522C /* icons8-filled_message.png in Resources */,
 				6D2DD6131F81200B00C3522C /* icons8-bebo.png in Resources */,
