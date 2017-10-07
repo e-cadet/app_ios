@@ -13,7 +13,7 @@ class loginViewController: UIViewController {
    
     
     
-    let URL_SAVE_TEAM = "http://rouibah.fr/search/web.php"
+    let URL = "http://rouibah.fr/search/web.php"
     
     @IBOutlet weak var login_field: UITextField!
     @IBOutlet weak var password_field: UITextField!
@@ -62,13 +62,8 @@ class loginViewController: UIViewController {
        
         let requestURL = NSURL(string: liens)
         let demande = "login"
-        
         let request = NSMutableURLRequest(url:requestURL! as URL )
-        
-        
         request.httpMethod = "POST"
-        
-        
         let postParameters = "demande="+demande+"&pseudo="+login+"&pass="+pass;
         
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
@@ -138,7 +133,7 @@ class loginViewController: UIViewController {
         
         }   else {
                 DispatchQueue.main.async(){
-                    self.send_info(liens : self.URL_SAVE_TEAM, login: userEmail!, pass: userPassword!)
+                    self.send_info(liens : self.URL, login: userEmail!, pass: userPassword!)
                 }
             }
       

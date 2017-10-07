@@ -27,26 +27,37 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL(string: "http://rouibah.fr/search/rec_blog.php")!
+        let lien = "http://rouibah.fr/search/web.php"
+        let demande = "blog"
+        let requestURL = NSURL(string: lien)
+        let request = NSMutableURLRequest(url:requestURL! as URL )
+        request.httpMethod = "POST"
+        let postParameters = "demande="+demande
+        request.httpBody = postParameters.data(using: String.Encoding.utf8)
         let urlSession = URLSession.shared
         
-        let task = urlSession.dataTask(with: url as URL) { (data, response, error) in
+        let task = urlSession.dataTask(with: request as URLRequest) {data, response, error in
             
-            // JSON pars en array
-            let jsonData = try! JSONSerialization.jsonObject(with: data!, options: [])
+            
+            let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
+            
+            
+            
+            
             self.items = jsonData as! [[String:AnyObject]]
+            print (jsonData)
             
-            // dispatching
-            DispatchQueue.main.async()
-            {
-                self.blogTableView.reloadData()
+            DispatchQueue.main.async(){
+                
+                    self.blogTableView.reloadData()
             }
+            
             
         }
         
         task.resume()
     }
-     
+    
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +78,7 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         DispatchQueue.main.async {
         // initialisation url
-        let url_img : String = "http://rouibah.fr/search/img/"
+        let url_img : String = "http://rouibah.fr/search/img_red/"
         let ext : String = ".jpg"
         let imageUrlString = "\(url_img)" + "\( item["image"]!)" + "\(ext)"
         let imageUrl:URL = URL(string: imageUrlString )!

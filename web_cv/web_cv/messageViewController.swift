@@ -47,9 +47,12 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                             self.items = jsonData as! [[String:AnyObject]]
                             print (jsonData)
+                    
+                            DispatchQueue.main.async(){
+                                
                             self.messageTableView.reloadData()
                     
-                    
+                            }
                     
                     }
                 
