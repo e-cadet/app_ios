@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-class contactViewController: UIViewController {
+class contactViewController: UIViewController, UITextFieldDelegate {
 
     let URL = "http://rouibah.fr/search/web.php"
     
@@ -148,7 +148,7 @@ class contactViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.name_field.delegate = self
         let check_internet = (currentReachabilityStatus != .notReachable)
         
         if check_internet == false {
@@ -159,6 +159,17 @@ class contactViewController: UIViewController {
         
     }
 
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        name_field.resignFirstResponder()
+        return true
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -2299,10 +2299,10 @@ www.rouibah.fr</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wsQ-sn-trw"/>
-        <segue reference="8yB-oH-RCt"/>
-        <segue reference="ec3-b4-2La"/>
-        <segue reference="Hxb-yq-84K"/>
+        <segue reference="5rn-S9-PFo"/>
         <segue reference="sPY-af-8ch"/>
+        <segue reference="Hxb-yq-84K"/>
+        <segue reference="8yB-oH-RCt"/>
         <segue reference="ZFF-Bt-Wkb"/>
     </inferredMetricsTieBreakers>
 </document>

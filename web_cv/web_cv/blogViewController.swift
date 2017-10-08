@@ -100,7 +100,7 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         DispatchQueue.main.async {
         // initialisation url
-        let url_img : String = "http://rouibah.fr/search/img_red/"
+        let url_img : String = "http://rouibah.fr/search/img/"
         let ext : String = ".jpg"
         let imageUrlString = "\(url_img)" + "\( item["image"]!)" + "\(ext)"
         let imageUrl:URL = URL(string: imageUrlString )!

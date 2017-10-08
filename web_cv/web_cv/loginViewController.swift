@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class loginViewController: UIViewController {
+class loginViewController: UIViewController, UITextFieldDelegate {
     
    
     
@@ -105,7 +105,7 @@ class loginViewController: UIViewController {
                     //creation string
                     var msg : String!
                     
-                    //json response
+                    //json reponse
                     msg = parseJSON["rep"] as! String?
                     
                     DispatchQueue.main.async {
@@ -151,6 +151,8 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.login_field.delegate = self
+        self.password_field.delegate = self
         
         let check_internet = (currentReachabilityStatus != .notReachable)
         
@@ -162,9 +164,19 @@ class loginViewController: UIViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        login_field.resignFirstResponder()
+        password_field.resignFirstResponder()
+        
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 //============================================= fin de code ==============================================

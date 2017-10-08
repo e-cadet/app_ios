@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     
@@ -170,7 +170,7 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title_label.delegate = self
         let check_internet = (currentReachabilityStatus != .notReachable)
         
         if check_internet == false {
@@ -180,8 +180,15 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
-   
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        title_label.resignFirstResponder()
+        return true
+    }
     
 
   

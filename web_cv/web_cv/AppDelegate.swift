@@ -13,6 +13,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+   
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -55,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -62,22 +66,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    //==================================================================================================
+//==================================================================================================
    
-    
-   
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Convertir  token en string
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+    class func getDelegate() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
         
+        
+    }
+   
+    
+    
+        
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            // Convertir  token en string
+            let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        
+        
+        //var badge = application.applicationIconBadgeNumber
+            
+        
+            
         // Print sur la console
         print("APNs device token: \(deviceTokenString)")
         
-        
+       
        
       
         //Envoyer token vers php bdd
+        let liens = "http://rouibah.fr/search/web.php"
+        
+        let requestURL = NSURL(string: liens)
+        let demande = "token"
+        let request = NSMutableURLRequest(url:requestURL! as URL )
+        request.httpMethod = "POST"
+        let postParameters = "demande="+demande+"&token="+deviceTokenString;
+        
+        DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
+            
+            
+            request.httpBody = postParameters.data(using: String.Encoding.utf8)
+            
+            
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest){
+                data, response, error in
+                
+                if error != nil{
+                    print("lerreur est \(String(describing: error))")
+                    return;
+                }
+                
+                //parser la reponse
+                do {
+                    
+                    
+                    
+                    let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    
+                    
+                    
+                    
+                    //parser json
+                    if let parseJSON = myJSON {
+                        
+                        //creation string
+                        var msg : String!
+                        
+                        //json response
+                        msg = parseJSON["rep"] as! String?
+                        
+                        print(msg)
+                        
+                    }
+                } catch {
+                    print(error)
+                }
+                
+            }
+            //executer task
+            task.resume()
+            
+        }
         
         
     }

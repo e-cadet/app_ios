@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import SystemConfiguration
 
 
@@ -67,19 +68,19 @@ extension NSObject:Utilities{
 }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     
-    
-    
-    
-    
-   
+    //let delegate = AppDelegate.getDelegate()
+    //application.applicationIconBadgeNumber!
+     //var appDel = UIApplication.shared.delegate as! AppDelegate
+     //var variable = self.appDel.myVariable
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
+
        
     }
     
