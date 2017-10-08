@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class loginViewController: UIViewController {
     
@@ -20,15 +22,21 @@ class loginViewController: UIViewController {
     
     
 
-    func alert_message ( the_msg:String){
-
-        let alertController = UIAlertController(title: "Alert", message: the_msg, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        
-        alertController.addAction(alertAction)
-        
-        present(alertController, animated: true, completion: nil)
+    var opQueue = OperationQueue()
     
+    func alert_message ( the_title: String , the_msg:String){
+        
+        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.opQueue.addOperation {
+            
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+        
     }
     
     func validation ( the_index:String ){
@@ -49,7 +57,7 @@ class loginViewController: UIViewController {
             
         else {
             
-            self.alert_message (the_msg:"mot de pass ou login incorect")
+            self.alert_message (the_title : "Alert", the_msg:"mot de pass ou login incorect")
             
             
         }
@@ -129,7 +137,7 @@ class loginViewController: UIViewController {
 
         if (userEmail == "" || userPassword == ""){
             
-            self.alert_message (the_msg:"Veillez remplire les champs")
+            self.alert_message (the_title : "Alert", the_msg:"Veillez remplire les champs")
         
         }   else {
                 DispatchQueue.main.async(){
@@ -138,6 +146,25 @@ class loginViewController: UIViewController {
             }
       
         
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let check_internet = (currentReachabilityStatus != .notReachable)
+        
+        if check_internet == false {
+            
+            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
+            
+        }
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 //============================================= fin de code ==============================================

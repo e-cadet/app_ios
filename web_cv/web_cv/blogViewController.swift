@@ -9,24 +9,44 @@
 import UIKit
 import Foundation
 
+
 class blogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-   
-   
-   
-   
-    
-    
-//========================================================================
-    
+ 
     
     
      @IBOutlet weak var blogTableView: UITableView!
-    var items = [[String:AnyObject]]()
+     var items = [[String:AnyObject]]()
+    
+     var opQueue = OperationQueue()
+    
+    func alert_message ( the_title: String , the_msg:String){
+        
+        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.opQueue.addOperation {
+            
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+        
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let check_internet = (currentReachabilityStatus != .notReachable)
+        if check_internet == false {
+            
+            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
+            
+        }else {
         let lien = "http://rouibah.fr/search/web.php"
         let demande = "blog"
         let requestURL = NSURL(string: lien)
@@ -45,7 +65,7 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
             self.items = jsonData as! [[String:AnyObject]]
-            print (jsonData)
+            
             
             DispatchQueue.main.async(){
                 
@@ -56,6 +76,8 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         task.resume()
+            
+        }
     }
     
 
@@ -89,7 +111,7 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
            
             //initilisation image UIImage
             let imageData:NSData = NSData(contentsOf: imageUrl)!
-            let imageView = UIImageView(frame: CGRect(x:0, y:0, width:200, height:200))
+            let imageView = UIImageView()
             imageView.center = self.view.center
             
                 // image in cell

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,6 +19,23 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var title_label: UITextField!
     @IBOutlet weak var descr_label: UITextView!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
+    
+    var opQueue = OperationQueue()
+    
+    func alert_message ( the_title: String , the_msg:String){
+        
+        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.opQueue.addOperation {
+            
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+        
+    }
 
    
     
@@ -152,13 +171,17 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let check_internet = (currentReachabilityStatus != .notReachable)
+        
+        if check_internet == false {
+            
+            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
+            
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
 
   

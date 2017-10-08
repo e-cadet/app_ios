@@ -10,46 +10,43 @@ import UIKit
 import Foundation
 
 
-/*
-struct Courses {
 
-    let  ip : String
-    let  jour : String
-    let  heure : String
-    let  nom: String
-    let  email : String
-    let  tel : String
-    let  message : String
 
-    init (jsonData : [String: Any]){
-    
-        ip = jsonData ["ip"] as!String
-        jour = jsonData ["jour"] as!String
-        heure = jsonData ["heure"] as! String
-        nom = jsonData ["nom"] as! String
-        email = jsonData ["email"] as! String
-        tel = jsonData ["tel"] as! String
-        message = jsonData ["message"] as! String
-        
-    }
 
-}
-*/
 class messageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTableView: UITableView!
     
     var items = [[String : AnyObject]]()
+    var opQueue = OperationQueue()
     
-        var itom = NSString()
-      
+    func alert_message ( the_title: String , the_msg:String){
+        
+        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.opQueue.addOperation {
+            
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+        
+    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        let check_internet = (currentReachabilityStatus != .notReachable)
+        if check_internet == false {
+            
+            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
+            
+        }else {
         
        
                 let lien = "http://rouibah.fr/search/web.php"
@@ -63,18 +60,14 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
                 let task = urlSession.dataTask(with: request as URLRequest) {data, response, error in
                     
-                    
-                            let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
-                    
+                 
+                          let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
                     
                     
                     
                             let json_decode = jsonData as! [[String:AnyObject]]
-                    
-                    
-                    self.items = json_decode
-                    
-                    
+                            self.items = json_decode
+                        
                             DispatchQueue.main.async(){
                                 
                             self.messageTableView.reloadData()
@@ -85,7 +78,7 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 task.resume()
        
-        
+        }
     }
     
 

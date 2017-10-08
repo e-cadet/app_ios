@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Foundation
 class contactViewController: UIViewController {
 
     let URL = "http://rouibah.fr/search/web.php"
@@ -18,14 +18,20 @@ class contactViewController: UIViewController {
     @IBOutlet weak var message_field: UITextView!
     
     
-    func alert_message ( the_msg:String){
+    var opQueue = OperationQueue()
+    
+    func alert_message ( the_title: String , the_msg:String){
         
-        let alertController = UIAlertController(title: "Alert", message: the_msg, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
         
-        alertController.addAction(alertAction)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         
-        present(alertController, animated: true, completion: nil)
+        self.opQueue.addOperation {
+            
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
         
     }
     
@@ -47,7 +53,7 @@ class contactViewController: UIViewController {
             
         else {
             
-            self.alert_message (the_msg:"Désolé votre message n'a pas etait envoyé")
+            self.alert_message (the_title: "Alert", the_msg:"Désolé votre message n'a pas etait envoyé")
             
             
         }
@@ -74,16 +80,18 @@ class contactViewController: UIViewController {
         
        
         if (message_t?.characters.count)! > 300{
-            self.alert_message (the_msg:"votre message depasse les 300 caracteres!!!!")
+            self.alert_message (the_title: "Alert", the_msg:"votre message depasse les 300 caracteres!!!!")
         }
  
         if ((name?.isEmpty)! || (email?.isEmpty)! || (tel?.isEmpty)! || (message_t?.isEmpty)!){
             
             
-            self.alert_message (the_msg:"veilliez renseigner tout les champs")
+            self.alert_message (the_title: "Alert", the_msg:"veilliez renseigner tout les champs")
             
         }
-        else {
+            else
+        
+        {
                 //creation post parametre
             
                 let demande = "insertContact"
@@ -141,7 +149,14 @@ class contactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let check_internet = (currentReachabilityStatus != .notReachable)
+        
+        if check_internet == false {
+            
+            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
