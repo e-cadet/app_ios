@@ -12,6 +12,9 @@ class contactViewController: UIViewController, UITextFieldDelegate {
 
     let URL = "http://rouibah.fr/search/web.php"
     
+    var badge = ""
+    
+    @IBOutlet weak var badgeLabel: UILabel!
     @IBOutlet weak var name_field: UITextField!
     @IBOutlet weak var email_field: UITextField!
     @IBOutlet weak var tel_field: UITextField!
@@ -143,11 +146,31 @@ class contactViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-//============================================= fin de code ==============================================
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
+            
+            badge = xBadge
+            
+        }
+        
+        
+        if badge == "0" {
+            self.badgeLabel.text = ""
+            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+            
+            print("badge contact = "+badge)
+            
+        }
+        else {
+            
+            self.badgeLabel.text = ""+badge
+            print("badge contact = "+badge)
+        }
+        
         self.name_field.delegate = self
         let check_internet = (currentReachabilityStatus != .notReachable)
         

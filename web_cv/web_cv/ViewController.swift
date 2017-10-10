@@ -70,16 +70,88 @@ extension NSObject:Utilities{
 
 class ViewController: UIViewController{
 
+   
+    @IBOutlet weak var badgeLabel: UILabel!
     
-    //let delegate = AppDelegate.getDelegate()
-    //application.applicationIconBadgeNumber!
-     //var appDel = UIApplication.shared.delegate as! AppDelegate
-     //var variable = self.appDel.myVariable
+    var token = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        if let xToken = UserDefaults.standard.object(forKey: "tokenValue")  as? String{
+            
+             token = xToken
+            
+            
+        }
+        
+        let liens = "http://rouibah.fr/search/ApnsPHP/notification.php"
+        
+        let requestURL = NSURL(string: liens)
+        let demande = "etat"
+        let request = NSMutableURLRequest(url:requestURL! as URL )
+        request.httpMethod = "POST"
+        let postParameters = "demande="+demande+"&token="+token;
+        
+        print ("token value est : "+token)
+        
+        DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
+            
+            
+            request.httpBody = postParameters.data(using: String.Encoding.utf8)
+            
+            
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest){
+                data, response, error in
+                
+                if error != nil{
+                    print("lerreur est \(String(describing: error))")
+                    return;
+                }
+                
+                //parser la reponse
+                do {
+                    
+                    
+                    
+                    let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    
+                    
+                    
+                    
+                    //parser json
+                    if let parseJSON = myJSON {
+                        
+                        //creation string
+                        var badge : String!
+                        
+                        //json reponse
+                        badge = parseJSON["rep"] as! String!
+                        
+                        
+                       //print("valeur badge : "+badge)
+                        UserDefaults.standard.set(badge, forKey: "badgeValue")
+                        
+                        if badge == "0" {
+                            self.badgeLabel.text = ""
+                            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+                            
+                        }
+                        else {
+                        
+                            self.badgeLabel.text = ""+badge
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
+                
+            }
+            //executer task
+            task.resume()
+            
+        }
 
        
     }

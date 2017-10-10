@@ -13,6 +13,9 @@ import Foundation
 class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
+    @IBOutlet weak var badgeLabel: UILabel!
+    
+    var badge = ""
     
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -170,6 +173,24 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
+            
+            badge = xBadge
+        }
+        
+        if badge == "0" {
+            self.badgeLabel.text = ""
+            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+            
+        }
+        else {
+            
+            self.badgeLabel.text = ""+badge
+        }
+        
+        
+        
         self.title_label.delegate = self
         let check_internet = (currentReachabilityStatus != .notReachable)
         

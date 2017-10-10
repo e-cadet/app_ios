@@ -10,10 +10,16 @@ import UIKit
 import Foundation
 
 
+    
+   
+
+
 class blogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
- 
     
+    @IBOutlet weak var badgeLabel: UILabel!
+    
+    var badge = ""
     
      @IBOutlet weak var blogTableView: UITableView!
      var items = [[String:AnyObject]]()
@@ -36,10 +42,30 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
+            
+            badge = xBadge
+        }
+        
+        if badge == "0" {
+            self.badgeLabel.text = ""
+            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+            
+            print("badge blog = "+badge)
+            
+        }
+        else {
+            
+            self.badgeLabel.text = ""+badge
+            print("badge blog = "+badge)
+        }
+        
+     
         
         let check_internet = (currentReachabilityStatus != .notReachable)
         if check_internet == false {

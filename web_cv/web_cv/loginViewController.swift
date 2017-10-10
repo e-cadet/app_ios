@@ -20,6 +20,9 @@ class loginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var login_field: UITextField!
     @IBOutlet weak var password_field: UITextField!
     
+    @IBOutlet weak var badgeLabel: UILabel!
+    
+    var badge = ""
     
 
     var opQueue = OperationQueue()
@@ -151,6 +154,25 @@ class loginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
+            
+            badge = xBadge
+        }
+        
+        if badge == "0" {
+            self.badgeLabel.text = ""
+            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
+            
+            print("badge blog = "+badge)
+            
+        }
+        else {
+            
+            self.badgeLabel.text = ""+badge
+            print("badge blog = "+badge)
+        }
+        
+        
         self.login_field.delegate = self
         self.password_field.delegate = self
         

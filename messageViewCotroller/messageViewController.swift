@@ -11,62 +11,21 @@ import Foundation
 
 
 
-
-
 class messageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTableView: UITableView!
-    @IBOutlet weak var badgeLabel: UILabel!
-    
-    var badge = ""
     
     var items = [[String : AnyObject]]()
-    var opQueue = OperationQueue()
     
-    func alert_message ( the_title: String , the_msg:String){
-        
-        let alert = UIAlertController(title: the_title, message: the_msg, preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        
-        self.opQueue.addOperation {
-            
-            OperationQueue.main.addOperation({
-                self.present(alert, animated: true, completion: nil)
-            })
-        }
-        
-    }
-    
+        var itom = NSString()
+      
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
-            
-            badge = xBadge
-        }
-        
-        if badge == "0" {
-            self.badgeLabel.text = ""
-            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
-            
-            
-            
-        }
-        else {
-            
-            self.badgeLabel.text = ""+badge
-        }
         
         
-        let check_internet = (currentReachabilityStatus != .notReachable)
-        if check_internet == false {
-            
-            self.alert_message (the_title: "Erreur Connexion", the_msg:"Cette page exige une connexion internet")
-            
-        }else {
         
        
                 let lien = "http://rouibah.fr/search/web.php"
@@ -80,25 +39,23 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
                 let task = urlSession.dataTask(with: request as URLRequest) {data, response, error in
                     
-                 
-                          let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
+                    
+                            let jsonData = try! JSONSerialization.jsonObject(with:data!, options:[])
                     
                     
                     
-                            let json_decode = jsonData as! [[String:AnyObject]]
-                            self.items = json_decode
-                        
-                            DispatchQueue.main.async(){
-                                
+                    
+                            self.items = jsonData as! [[String:AnyObject]]
+                            print (jsonData)
                             self.messageTableView.reloadData()
                     
-                            }
+                    
                     
                     }
                 
                 task.resume()
        
-        }
+        
     }
     
 

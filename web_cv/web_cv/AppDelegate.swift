@@ -23,19 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 10, *) {
             UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
             application.registerForRemoteNotifications()
-        }
-            // iOS 9
-        else if #available(iOS 9, *) {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
-            UIApplication.shared.registerForRemoteNotifications()
-        }
-            // iOS 8
-        else if #available(iOS 8, *) {
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
-            UIApplication.shared.registerForRemoteNotifications()
-        }
-            // iOS 7
-        else {  
+        }else {  
             application.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
         }
         
@@ -43,39 +31,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
+        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
+            let badge = Int(xBadge)!
+            application.applicationIconBadgeNumber = badge
+            
+            
+        }
+        
+        
+        // Envoyé lorsque l'application est sur le point de passer de l'état actif à l'état inactif. Cela peut se produire pour certains types d'interruptions temporaires (comme un appel téléphonique entrant ou un message SMS) ou lorsque l'utilisateur quitte l'application et qu'il commence la transition vers l'état d'arrière-plan.
+          // Utilisez cette méthode pour suspendre les tâches en cours, désactiver les minuteries et invalider les rappels de rendu graphique. Les jeux doivent utiliser cette méthode pour mettre le jeu en pause.
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // Utilisez cette méthode pour libérer des ressources partagées, enregistrer des données utilisateur, invalider les minuteries et stocker suffisamment d'informations sur l'état de l'application pour restaurer votre application dans son état actuel au cas où elle se terminerait ultérieurement.
+        // Si votre application prend en charge l'exécution en arrière-plan, cette méthode est appelée à la place de applicationWillTerminate: lorsque l'utilisateur se ferme.
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        // Appelé dans le cadre de la transition de l'arrière-plan à l'état actif; ici vous pouvez annuler un grand nombre des modifications apportées à l'entrée en arrière-plan.
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+       // Redémarrez toutes les tâches mises en pause (ou pas encore démarrées) pendant que l'application était inactive. Si l'application était précédemment en arrière-plan, actualisez éventuellement l'interface utilisateur.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Appelé lorsque l'application est sur le point de se terminer. Sauvegarder les données le cas échéant. Voir aussi applicationDidEnterBackground :.
     }
     
 //==================================================================================================
    
-    class func getDelegate() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-        
-        
-    }
-   
-    
-    
         
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             // Convertir  token en string
@@ -83,18 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        //var badge = application.applicationIconBadgeNumber
-            
         
-            
-        // Print sur la console
-        print("APNs device token: \(deviceTokenString)")
-        
-       
+        UserDefaults.standard.set(deviceTokenString, forKey: "tokenValue")
        
       
         //Envoyer token vers php bdd
-        let liens = "http://rouibah.fr/search/web.php"
+        let liens = "http://rouibah.fr/search/ApnsPHP/notification.php"
         
         let requestURL = NSURL(string: liens)
         let demande = "token"
