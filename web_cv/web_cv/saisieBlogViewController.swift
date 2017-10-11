@@ -9,6 +9,13 @@
 import UIKit
 import Foundation
 
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
 
 class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -22,6 +29,8 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var title_label: UITextField!
     @IBOutlet weak var descr_label: UITextView!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
+    
+    
     
     var opQueue = OperationQueue()
     
@@ -43,12 +52,19 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
    
     
     @IBAction func uploadButtonTapped(_ sender: Any) {
+        
+        let title = title_label.text
+        let descr = descr_label.text
     
-    
+        if ((title?.isEmpty)! || (descr?.isEmpty)! ){
+            
+            
+            self.alert_message (the_title: "Alert", the_msg:"veilliez renseigner tout les champs")
+            
+        }else {
    
-        
-        myImageUploadRequest()
-        
+                myImageUploadRequest()
+        }
     }
     
     @IBAction func selectPhotoButtonTapped(_ sender: Any) {
@@ -192,6 +208,7 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
         
         
         self.title_label.delegate = self
+        
         let check_internet = (currentReachabilityStatus != .notReachable)
         
         if check_internet == false {
@@ -216,10 +233,4 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
 
 }
 
-extension NSMutableData {
-    
-    func appendString(string: String) {
-        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-        append(data!)
-    }
-}
+

@@ -9,7 +9,27 @@
 import UIKit
 import Foundation
 
-
+extension String {
+    
+    init?(htmlEncodedString: String) {
+        
+        guard let data = htmlEncodedString.data(using: .utf8) else {
+            return nil
+        }
+        
+        let options: [String: Any] = [
+            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+            NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue
+        ]
+        
+        guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
+            return nil
+        }
+        
+        self.init(attributedString.string)
+    }
+    
+}
 
 
 
@@ -114,7 +134,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     
     var item = items[indexPath.row]
-    //var item = items
+    let message = item["message"] as? String
+    let message_dec = String(htmlEncodedString: message!)
     
     cell.nom_label.text = item["nom"] as? String
     cell.IP_label.text = item["ip"] as? String
@@ -122,7 +143,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.tel_label.text = item["tel"] as? String
     cell.date_label.text = item["jour"] as? String
     cell.heure_label.text = item["heure"] as? String
-    cell.message_label.text = item["message"] as? String
+    cell.message_label.text = message_dec
     
     return cell
     

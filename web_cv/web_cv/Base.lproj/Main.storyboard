@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iRU-hA-u7B">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2355,10 +2355,10 @@ Nous y répondrons dès que possible.</string>
         <image name="icons8-mailbox_closed_flag_up.png" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CGa-do-eYx"/>
-        <segue reference="8yB-oH-RCt"/>
         <segue reference="ZFF-Bt-Wkb"/>
-        <segue reference="Hxb-yq-84K"/>
-        <segue reference="sPY-af-8ch"/>
+        <segue reference="hVk-nC-cmm"/>
+        <segue reference="R7M-em-UO7"/>
+        <segue reference="3ji-wK-Rd7"/>
+        <segue reference="ZVk-RF-Fjb"/>
     </inferredMetricsTieBreakers>
 </document>

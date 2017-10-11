@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 
+
     
    
 
@@ -117,9 +118,16 @@ class blogViewController: UIViewController, UITableViewDelegate, UITableViewData
        
             
         let item = items[indexPath.row]
-        cell.title.text = item["title"] as? String
-        cell.desc.text = item["descr"] as? String
+        
+        let descr = item["descr"] as? String
+        let descr_dec = String(htmlEncodedString: descr!)
+        
+        let title = item["title"] as? String
+        let title_dec = String(htmlEncodedString: title!)
+        
+        cell.title.text = title_dec
         cell.jour.text = item["jour"] as? String
+        cell.desc.text = descr_dec
         
       cell.indicateur.startAnimating();
         

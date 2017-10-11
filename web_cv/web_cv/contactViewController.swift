@@ -8,6 +8,17 @@
 
 import UIKit
 import Foundation
+
+extension String {
+    func emailV() -> Bool {
+        
+        
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: characters.count)) != nil
+    }
+}
+
+
 class contactViewController: UIViewController, UITextFieldDelegate {
 
     let URL = "http://rouibah.fr/search/web.php"
@@ -92,9 +103,9 @@ class contactViewController: UIViewController, UITextFieldDelegate {
             self.alert_message (the_title: "Alert", the_msg:"veilliez renseigner tout les champs")
             
         }
-            else
+        else if (email?.emailV())! {
+            
         
-        {
                 //creation post parametre
             
                 let demande = "insertContact"
@@ -143,6 +154,11 @@ class contactViewController: UIViewController, UITextFieldDelegate {
                 //execution task
                 task.resume()
             }
+        
+        else {
+        
+            self.alert_message (the_title: "Alert", the_msg:"Adresse E-mail invalide")
+        }
     }
     
 
@@ -172,6 +188,8 @@ class contactViewController: UIViewController, UITextFieldDelegate {
         }
         
         self.name_field.delegate = self
+        self.email_field.delegate = self
+        self.tel_field.delegate = self
         let check_internet = (currentReachabilityStatus != .notReachable)
         
         if check_internet == false {
