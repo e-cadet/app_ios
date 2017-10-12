@@ -21,6 +21,7 @@
 		6D2DD61B1F8122E400C3522C /* icons8-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61A1F8122E400C3522C /* icons8-lock.png */; };
 		6D2DD61D1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61C1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png */; };
 		6D2DD61F1F816EC000C3522C /* icons8-blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD61E1F816EC000C3522C /* icons8-blog.png */; };
+		6D3A21981F8FB3B9003621B9 /* pushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3A21971F8FB3B9003621B9 /* pushViewController.swift */; };
 		6D3E7F491F85411800531251 /* saisieBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F481F85411800531251 /* saisieBlogViewController.swift */; };
 		6D3E7F4B1F855B8C00531251 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F4A1F855B8C00531251 /* loginViewController.swift */; };
 		6D3E7F4D1F8564A400531251 /* messageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E7F4C1F8564A400531251 /* messageTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 		6D2DD61A1F8122E400C3522C /* icons8-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-lock.png"; path = "img/icons8-lock.png"; sourceTree = "<group>"; };
 		6D2DD61C1F816D2E00C3522C /* icons8-mailbox_closed_flag_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-mailbox_closed_flag_up.png"; path = "img/icons8-mailbox_closed_flag_up.png"; sourceTree = "<group>"; };
 		6D2DD61E1F816EC000C3522C /* icons8-blog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-blog.png"; path = "img/icons8-blog.png"; sourceTree = "<group>"; };
+		6D3A21971F8FB3B9003621B9 /* pushViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pushViewController.swift; path = web_cv/pushViewController.swift; sourceTree = "<group>"; };
 		6D3E7F481F85411800531251 /* saisieBlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = saisieBlogViewController.swift; path = web_cv/saisieBlogViewController.swift; sourceTree = "<group>"; };
 		6D3E7F4A1F855B8C00531251 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = loginViewController.swift; path = web_cv/loginViewController.swift; sourceTree = "<group>"; };
 		6D3E7F4C1F8564A400531251 /* messageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = messageTableViewCell.swift; path = web_cv/messageTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				6D9F8C061F8C116B001B78C8 /* notificationViewController.swift */,
 				6D3E7F4C1F8564A400531251 /* messageTableViewCell.swift */,
 				6D3E7F4E1F8564F900531251 /* messageViewController.swift */,
+				6D3A21971F8FB3B9003621B9 /* pushViewController.swift */,
 				6D3E7F481F85411800531251 /* saisieBlogViewController.swift */,
 			);
 			name = ViewControllers;
@@ -247,6 +250,7 @@
 				6D3E7F4D1F8564A400531251 /* messageTableViewCell.swift in Sources */,
 				6D0C411D1F80EF9A00188E24 /* AppDelegate.swift in Sources */,
 				6D9F8C091F8C17DF001B78C8 /* notificationViewCell.swift in Sources */,
+				6D3A21981F8FB3B9003621B9 /* pushViewController.swift in Sources */,
 				6DA825E11F84E52E0074E967 /* blogViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,7 +38,7 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var badgeLabel: UILabel!
     
-    var badge = ""
+   
     
     var items = [[String : AnyObject]]()
     var opQueue = OperationQueue()
@@ -63,22 +63,7 @@ class messageViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
-            
-            badge = xBadge
-        }
         
-        if badge == "0" {
-            self.badgeLabel.text = ""
-            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
-            
-            
-            
-        }
-        else {
-            
-            self.badgeLabel.text = ""+badge
-        }
         
         
         let check_internet = (currentReachabilityStatus != .notReachable)

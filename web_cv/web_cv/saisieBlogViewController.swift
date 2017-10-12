@@ -9,20 +9,14 @@
 import UIKit
 import Foundation
 
-extension NSMutableData {
-    
-    func appendString(string: String) {
-        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-        append(data!)
-    }
-}
+
 
 class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var badgeLabel: UILabel!
     
-    var badge = ""
+    
     
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -104,10 +98,11 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
         request.httpMethod = "POST";
         
         let param = [
+            
             "title"  : title_label.text! ,
             "descr"    : descr_label.text!,
-            
             "demande" : "insertBlog"
+            
         ] as [String : Any]
         
         let boundary = generateBoundaryString()
@@ -190,20 +185,7 @@ class saisieBlogViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let xBadge = UserDefaults.standard.object(forKey: "badgeValue")  as? String{
-            
-            badge = xBadge
-        }
-        
-        if badge == "0" {
-            self.badgeLabel.text = ""
-            self.badgeLabel.backgroundColor = UIColor(white: 1, alpha: 0)
-            
-        }
-        else {
-            
-            self.badgeLabel.text = ""+badge
-        }
+       
         
         
         

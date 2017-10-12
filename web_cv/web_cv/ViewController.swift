@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import SystemConfiguration
 
-
+//===================  extension check internet utilise protocol Utilities ==================
 protocol Utilities {
 }
 
@@ -67,7 +67,27 @@ extension NSObject:Utilities{
     
 }
 
+//================================== extension encoding data ===================================
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
 
+//=============== extension String function emailV() pour valider email ========================
+extension String {
+    func emailV() -> Bool {
+        
+        
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: characters.count)) != nil
+    }
+}
+
+
+//========================= viewController ================================================
 class ViewController: UIViewController{
 
    
