@@ -111,6 +111,8 @@ class loginViewController: UIViewController, UITextFieldDelegate {
                     //json reponse
                     msg = parseJSON["rep"] as! String?
                     
+                    print(msg)
+                    
                     DispatchQueue.main.async {
                         self.validation (the_index: msg )
                         
